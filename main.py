@@ -28,8 +28,11 @@ binarised_housing = prep.binarise_y_n(df['housing'])
 # Perform binarisation for 'loan'
 binarised_loan = prep.binarise_y_n(df['loan'])
 
+# Perform binarisation for 'poutcome'
 binarised_poutcome = prep.binarise_poutcome(df['poutcome'])
 
+# Perform binarisation for 'day_of_week'
+binarised_day = prep.binarise_day(df['day_of_week'])
 # Perform binarisation for 'y'
 binarised_y = prep.binarise_y_n(df['y'])
 
@@ -55,6 +58,11 @@ processed_df = pd.DataFrame({
     'Previous Success': binarised_poutcome['success'],
     'Previous Failure': binarised_poutcome['failure'],
     'No Previous Contact': binarised_poutcome['nonexistent'],
+    'Mon': binarised_day['monday'],
+    'Tue': binarised_day['tuesday'],
+    'Wed': binarised_day['wednesday'],
+    'Thu': binarised_day['thursday'],
+    'Fri': binarised_day['friday'],
     'Y': binarised_y
 })
 

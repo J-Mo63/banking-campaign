@@ -129,6 +129,35 @@ def binarise_job(df):
             'unemployed': binarised_unemployed_list}
 
 
+def binarise_day(df):
+    # Isolate the values from the data frame
+    df = df.values
+
+    # Binarise the categories
+    binarised = preprocessing.LabelBinarizer().fit_transform(df)
+
+    # Format the binarised items into 5 columns
+    binarised_monday_list = []
+    binarised_tuesday_list = []
+    binarised_wednesday_list = []
+    binarised_thursday_list = []
+    binarised_friday_list = []
+    for i in range(len(binarised)):
+        item = binarised[i]
+        binarised_friday_list.append(item[0])
+        binarised_monday_list.append(item[1])
+        binarised_thursday_list.append(item[2])
+        binarised_tuesday_list.append(item[3])
+        binarised_wednesday_list.append(item[4])
+
+    # Return the results as a dictionary
+    return {'monday': binarised_monday_list,
+            'tuesday': binarised_tuesday_list,
+            'wednesday': binarised_wednesday_list,
+            'thursday': binarised_thursday_list,
+            'friday': binarised_friday_list}
+
+
 def write_to_xls(df):
     # Write and save the data to an excel document
     writer = pd.ExcelWriter('output.xls', engine='xlsxwriter')
