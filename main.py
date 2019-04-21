@@ -9,3 +9,6 @@ import math
 # Ignore warnings for automatic data conversion
 warnings.simplefilter(action='ignore', category=DataConversionWarning)
 
+# Import the data and read from Excel file
+df = pd.read_csv('banking_campaign.csv')
+
