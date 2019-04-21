@@ -21,6 +21,23 @@ def binarise_marital(df):
             'single': binarised_single_list,
             'divorced': binarised_divorced_list}
 
+
+def binarise_contact(df):
+    # Isolate the values from the data frame
+    df = df.values
+
+    # Binarise the categories
+    binarised = preprocessing.LabelBinarizer().fit_transform(df)
+
+    # Format the binarised items into one boolean column
+    binarised_tel_cell_list = []
+    for i in range(len(binarised)):
+        item = binarised[i]
+        binarised_tel_cell_list.append(item[0])
+
+    # Return the results as a list
+    return binarised_tel_cell_list
+
 def binarise_job(df):
     # Isolate the values from the data frame
     df = df.values

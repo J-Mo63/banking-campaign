@@ -16,6 +16,8 @@ df = pd.read_csv('banking_campaign.csv')
 # Perform binarisation for 'marital'
 binarised_marital = prep.binarise_marital(df['marital'])
 
+# Perform binarisation for 'contact'
+binarised_contact = prep.binarise_contact(df['contact'])
 
 # Perform binarisation for 'job'
 binarised_job = prep.binarise_job(df['job'])
