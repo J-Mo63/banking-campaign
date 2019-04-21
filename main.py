@@ -6,3 +6,6 @@ import pandas as pd
 import warnings
 import math
 
+# Ignore warnings for automatic data conversion
+warnings.simplefilter(action='ignore', category=DataConversionWarning)
+
