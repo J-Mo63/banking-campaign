@@ -1,3 +1,6 @@
+import pandas as pd
+from sklearn import preprocessing
+
 
 def binarise_marital(df):
     # Isolate the values from the data frame
