@@ -158,6 +158,50 @@ def binarise_day(df):
             'friday': binarised_friday_list}
 
 
+def binarise_month(df):
+    # Isolate the values from the data frame
+    df = df.values
+
+    # Binarise the categories
+    binarised = preprocessing.LabelBinarizer().fit_transform(df)
+
+    # Format the binarised items into 10 columns
+    binarised_march_list = []
+    binarised_april_list = []
+    binarised_may_list = []
+    binarised_june_list = []
+    binarised_july_list = []
+    binarised_august_list = []
+    binarised_september_list = []
+    binarised_october_list = []
+    binarised_november_list = []
+    binarised_december_list = []
+    for i in range(len(binarised)):
+        item = binarised[i]
+        binarised_april_list.append(item[0])
+        binarised_august_list.append(item[1])
+        binarised_december_list.append(item[2])
+        binarised_july_list.append(item[3])
+        binarised_june_list.append(item[4])
+        binarised_march_list.append(item[5])
+        binarised_may_list.append(item[6])
+        binarised_november_list.append(item[7])
+        binarised_october_list.append(item[8])
+        binarised_september_list.append(item[9])
+
+    # Return the results as a dictionary
+    return {'march': binarised_march_list,
+            'april': binarised_april_list,
+            'may': binarised_may_list,
+            'june': binarised_june_list,
+            'july': binarised_july_list,
+            'august': binarised_august_list,
+            'september': binarised_september_list,
+            'october': binarised_october_list,
+            'november': binarised_november_list,
+            'december': binarised_december_list}
+
+
 def write_to_xls(df):
     # Write and save the data to an excel document
     writer = pd.ExcelWriter('output.xls', engine='xlsxwriter')

@@ -33,6 +33,10 @@ binarised_poutcome = prep.binarise_poutcome(df['poutcome'])
 
 # Perform binarisation for 'day_of_week'
 binarised_day = prep.binarise_day(df['day_of_week'])
+
+# Perform binarisation for 'month'
+binarised_month = prep.binarise_month(df['month'])
+
 # Perform binarisation for 'y'
 binarised_y = prep.binarise_y_n(df['y'])
 
@@ -63,6 +67,16 @@ processed_df = pd.DataFrame({
     'Wed': binarised_day['wednesday'],
     'Thu': binarised_day['thursday'],
     'Fri': binarised_day['friday'],
+    'Mar': binarised_month['march'],
+    'Apr': binarised_month['april'],
+    'May': binarised_month['may'],
+    'Jun': binarised_month['june'],
+    'Jul': binarised_month['july'],
+    'Aug': binarised_month['august'],
+    'Sep': binarised_month['september'],
+    'Oct': binarised_month['october'],
+    'Nov': binarised_month['november'],
+    'Dec': binarised_month['december'],
     'Y': binarised_y
 })
 
