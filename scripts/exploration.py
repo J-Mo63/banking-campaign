@@ -9,7 +9,7 @@ def correlation_matrix(df):
     df = df.drop('row id', 1)
 
     # Set up the matrix plot
-    f, ax = plt.subplots(figsize=(10, 8))
+    f, ax = plt.subplots(figsize=(20, 16))
     corr = df.corr()
     sns.heatmap(corr, mask=np.zeros_like(corr, dtype=np.bool),
                 cmap=sns.diverging_palette(220, 10, as_cmap=True),
