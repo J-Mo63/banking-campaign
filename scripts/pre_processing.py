@@ -38,6 +38,24 @@ def binarise_contact(df):
     # Return the results as a list
     return binarised_tel_cell_list
 
+
+def binarise_y_n(df):
+    # Isolate the values from the data frame
+    df = df.values
+
+    # Format the binarised items into one boolean column
+    binarised_y_n_list = []
+    for i in range(len(df)):
+        item = df[i]
+        if item == 'yes':
+            binarised_y_n_list.append(1)
+        else:
+            binarised_y_n_list.append(0)
+
+    # Return the results as a list
+    return binarised_y_n_list
+
+
 def binarise_job(df):
     # Isolate the values from the data frame
     df = df.values
