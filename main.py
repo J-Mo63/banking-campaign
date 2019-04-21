@@ -22,6 +22,14 @@ binarised_contact = prep.binarise_contact(df['contact'])
 # Perform binarisation for 'job'
 binarised_job = prep.binarise_job(df['job'])
 
+# Perform binarisation for 'housing'
+binarised_housing = prep.binarise_y_n(df['housing'])
+
+# Perform binarisation for 'loan'
+binarised_loan = prep.binarise_y_n(df['loan'])
+
+# Perform binarisation for 'y'
+binarised_y = prep.binarise_y_n(df['y'])
 
 # Create a combined data frame of pre-processed data for analysis
 processed_df = pd.DataFrame({
@@ -39,6 +47,10 @@ processed_df = pd.DataFrame({
     'Student': binarised_job['student'],
     'Technician': binarised_job['technician'],
     'Unemployed': binarised_job['unemployed'],
+    'Telephone': binarised_contact,
+    'Housing': binarised_housing,
+    'Loan': binarised_loan,
+    'Y': binarised_y
 })
 
 # Combine the original data to the processed data for analysis
