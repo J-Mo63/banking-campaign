@@ -28,6 +28,8 @@ binarised_housing = prep.binarise_y_n(df['housing'])
 # Perform binarisation for 'loan'
 binarised_loan = prep.binarise_y_n(df['loan'])
 
+binarised_poutcome = prep.binarise_poutcome(df['poutcome'])
+
 # Perform binarisation for 'y'
 binarised_y = prep.binarise_y_n(df['y'])
 
@@ -50,6 +52,9 @@ processed_df = pd.DataFrame({
     'Telephone': binarised_contact,
     'Housing': binarised_housing,
     'Loan': binarised_loan,
+    'Previous Success': binarised_poutcome['success'],
+    'Previous Failure': binarised_poutcome['failure'],
+    'No Previous Contact': binarised_poutcome['nonexistent'],
     'Y': binarised_y
 })
 

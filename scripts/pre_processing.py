@@ -25,6 +25,29 @@ def binarise_marital(df):
             'divorced': binarised_divorced_list}
 
 
+def binarise_poutcome(df):
+    # Isolate the values from the data frame
+    df = df.values
+
+    # Binarise the categories
+    binarised = preprocessing.LabelBinarizer().fit_transform(df)
+
+    # Format the binarised items into three columns
+    binarised_failure_list = []
+    binarised_nonexistent_list = []
+    binarised_success_list = []
+    for i in range(len(binarised)):
+        item = binarised[i]
+        binarised_failure_list.append(item[0])
+        binarised_nonexistent_list.append(item[1])
+        binarised_success_list.append(item[2])
+
+    # Return the results as a dictionary
+    return {'failure': binarised_failure_list,
+            'nonexistent': binarised_nonexistent_list,
+            'success': binarised_success_list}
+
+
 def binarise_contact(df):
     # Isolate the values from the data frame
     df = df.values
