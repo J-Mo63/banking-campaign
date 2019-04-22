@@ -55,14 +55,14 @@ binarised_y = prep.binarise_y_n(df['y'])
 
 # Create a combined data frame for output
 output_df = pd.DataFrame({
-    'Equi-Width': binned_equi_width_campaign,
-    'Equi-Depth': binned_equi_depth_campaign,
-    'Min-Max': normalised_min_max_duration,
-    'Z-Score': normalised_z_score_duration,
-    'Discretised': discretised_age,
-    'Married': binarised_marital['married'],
-    'Single': binarised_marital['single'],
-    'Divorced': binarised_marital['divorced']
+    'campaign.equi-width': binned_equi_width_campaign,
+    'campaign.equi-depth': binned_equi_depth_campaign,
+    'duration.min-max': normalised_min_max_duration,
+    'duration.z-score': normalised_z_score_duration,
+    'age.discretised': discretised_age,
+    'marital.divorced': binarised_marital['divorced'],
+    'marital.married': binarised_marital['married'],
+    'marital.single': binarised_marital['single']
 })
 
 # Merge and write the data frame to an excel file
@@ -112,4 +112,4 @@ processed_df = pd.DataFrame({
 concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 
 # Display a correlation matrix
-exp.correlation_matrix(concatenated_df)
+# exp.correlation_matrix(concatenated_df)
