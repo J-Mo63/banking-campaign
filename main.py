@@ -23,6 +23,8 @@ binned_equi_depth_campaign = prep.bin_equi_depth(df['campaign'], 4)
 normalised_min_max_duration = prep.normalise_min_max(df['duration'])
 normalised_z_score_duration = prep.normalise_z_score(df['duration'])
 
+# Perform discretisation for 'age'
+discretised_age = prep.discretise_age(df['age'])
 
 # Perform binarisation for 'marital'
 binarised_marital = prep.binarise_marital(df['marital'])
@@ -57,6 +59,7 @@ output_df = pd.DataFrame({
     'Equi-Depth': binned_equi_depth_campaign,
     'Min-Max': normalised_min_max_duration,
     'Z-Score': normalised_z_score_duration,
+    'Discretised': discretised_age,
 })
 
 # Merge and write the data frame to an excel file
