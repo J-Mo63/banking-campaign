@@ -31,6 +31,17 @@ def bin_equi_depth(df, bins):
     # Return the results as a list
     return bin_equi_depth_list
 
+
+def normalise_min_max(df):
+    # Make the data frame two dimensional
+    df = df.values.reshape(-1, 1)
+
+    # Fit the min-max normalised list
+    min_max_scaled = preprocessing.MinMaxScaler().fit_transform(df)
+
+    # Return the results as a list
+    return pd.DataFrame(min_max_scaled).values.flatten()
+
 def binarise_marital(df):
     # Isolate the values from the data frame
     df = df.values
