@@ -19,6 +19,10 @@ sturges_rule_bins = math.log2(len(df))+1
 binned_equi_width_campaign = prep.bin_equi_width(df['campaign'], sturges_rule_bins)
 binned_equi_depth_campaign = prep.bin_equi_depth(df['campaign'], 4)
 
+# Perform normalisation for 'duration'
+normalised_min_max_duration = prep.normalise_min_max(df['duration'])
+normalised_z_score_duration = prep.normalise_z_score(df['duration'])
+
 
 # Perform binarisation for 'marital'
 binarised_marital = prep.binarise_marital(df['marital'])
@@ -51,6 +55,8 @@ binarised_y = prep.binarise_y_n(df['y'])
 output_df = pd.DataFrame({
     'Equi-Width': binned_equi_width_campaign,
     'Equi-Depth': binned_equi_depth_campaign,
+    'Min-Max': normalised_min_max_duration,
+    'Z-Score': normalised_z_score_duration,
 })
 
 # Merge and write the data frame to an excel file
