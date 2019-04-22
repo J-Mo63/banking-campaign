@@ -2,6 +2,20 @@ import pandas as pd
 from sklearn import preprocessing
 
 
+def bin_equi_width(df, bins):
+    # Cut up the data by width
+    binned_equi_width = pd.cut(df, bins)
+
+    # Format and listify equi-width list
+    bin_equi_width_list = []
+    for i in range(binned_equi_width.size):
+        left_item = "{0:.2f}".format(binned_equi_width[i].left)
+        right_item = "{0:.2f}".format(binned_equi_width[i].right)
+        bin_equi_width_list.append([left_item, right_item])
+
+    # Return the results as a list
+    return bin_equi_width_list
+
 def binarise_marital(df):
     # Isolate the values from the data frame
     df = df.values
