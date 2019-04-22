@@ -12,6 +12,13 @@ warnings.simplefilter(action='ignore', category=DataConversionWarning)
 # Import the data and read from Excel file
 df = pd.read_csv('banking_campaign.csv')
 
+# Calculate the optimal number of bins for normal distribution using Sturge's rule
+sturges_rule_bins = math.log2(len(df))+1
+
+# Perform binning for 'campaign'
+binned_equi_width_campaign = prep.bin_equi_width(df['campaign'], sturges_rule_bins)
+binned_equi_depth_campaign = prep.bin_equi_depth(df['campaign'], 4)
+
 
 # Perform binarisation for 'marital'
 binarised_marital = prep.binarise_marital(df['marital'])
@@ -39,6 +46,15 @@ binarised_month = prep.binarise_month(df['month'])
 
 # Perform binarisation for 'y'
 binarised_y = prep.binarise_y_n(df['y'])
+
+# Create a combined data frame for output
+output_df = pd.DataFrame({
+    'Equi-Width': binned_equi_width_campaign,
+    'Equi-Depth': binned_equi_depth_campaign,
+})
+
+# Merge and write the data frame to an excel file
+prep.write_to_xls(pd.concat([df, output_df], axis=1, sort=False))
 
 # Create a combined data frame of pre-processed data for analysis
 processed_df = pd.DataFrame({
