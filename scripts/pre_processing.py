@@ -42,6 +42,17 @@ def normalise_min_max(df):
     # Return the results as a list
     return pd.DataFrame(min_max_scaled).values.flatten()
 
+
+def normalise_z_score(df):
+    # Make the data frame two dimensional
+    df = df.values.reshape(-1, 1)
+
+    # Fit the min-max normalised list
+    z_score_scaled = preprocessing.StandardScaler().fit_transform(df)
+
+    # Return the results as a list
+    return pd.DataFrame(z_score_scaled).values.flatten()
+
 def binarise_marital(df):
     # Isolate the values from the data frame
     df = df.values
