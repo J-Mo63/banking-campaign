@@ -12,12 +12,12 @@ warnings.simplefilter(action='ignore', category=DataConversionWarning)
 # Import the data and read from Excel file
 df = pd.read_csv('banking_campaign.csv')
 
-# Calculate the optimal number of bins for normal distribution using Sturge's rule
+# Calculate the optimal number of bins for normal distribution using Sturges' rule
 sturges_rule_bins = math.log2(len(df))+1
 
 # Perform binning for 'campaign'
 binned_equi_width_campaign = prep.bin_equi_width(df['campaign'], sturges_rule_bins)
-binned_equi_depth_campaign = prep.bin_equi_depth(df['campaign'], 4)
+binned_equi_depth_campaign = prep.bin_equi_depth(df['campaign'], 7)
 
 # Perform normalisation for 'duration'
 normalised_min_max_duration = prep.normalise_min_max(df['duration'])

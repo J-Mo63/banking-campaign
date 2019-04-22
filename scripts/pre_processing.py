@@ -58,7 +58,7 @@ def discretise_age(df):
     # Isolate the values from the data frame
     df = df.values
 
-    # Discretise the petal width into categories
+    # Discretise the age into categories
     discretised_list = []
     for i in range(df.size):
         item = df[i]
