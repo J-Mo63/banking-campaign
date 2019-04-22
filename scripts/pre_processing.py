@@ -53,6 +53,28 @@ def normalise_z_score(df):
     # Return the results as a list
     return pd.DataFrame(z_score_scaled).values.flatten()
 
+
+def discretise_age(df):
+    # Isolate the values from the data frame
+    df = df.values
+
+    # Discretise the petal width into categories
+    discretised_list = []
+    for i in range(df.size):
+        item = df[i]
+        if item < 45:
+            discretised_list.append('Adult')
+        elif item <= 65:
+            discretised_list.append('Mid-age')
+        elif item > 65:
+            discretised_list.append('Old-age')
+        else:
+            discretised_list.append('NaN')
+
+    # Return the results as a list
+    return discretised_list
+
+
 def binarise_marital(df):
     # Isolate the values from the data frame
     df = df.values
