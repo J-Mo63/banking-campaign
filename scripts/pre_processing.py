@@ -16,6 +16,21 @@ def bin_equi_width(df, bins):
     # Return the results as a list
     return bin_equi_width_list
 
+
+def bin_equi_depth(df, bins):
+    # Cut up the data by width & depth
+    binned_equi_depth = pd.qcut(df, bins, duplicates='drop')
+
+    # Format and listify equi-depth list
+    bin_equi_depth_list = []
+    for i in range(binned_equi_depth.size):
+        left_item = "{0:.2f}".format(binned_equi_depth[i].left)
+        right_item = "{0:.2f}".format(binned_equi_depth[i].right)
+        bin_equi_depth_list.append([left_item, right_item])
+
+    # Return the results as a list
+    return bin_equi_depth_list
+
 def binarise_marital(df):
     # Isolate the values from the data frame
     df = df.values
