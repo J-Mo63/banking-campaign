@@ -60,6 +60,9 @@ output_df = pd.DataFrame({
     'Min-Max': normalised_min_max_duration,
     'Z-Score': normalised_z_score_duration,
     'Discretised': discretised_age,
+    'Married': binarised_marital['married'],
+    'Single': binarised_marital['single'],
+    'Divorced': binarised_marital['divorced']
 })
 
 # Merge and write the data frame to an excel file
