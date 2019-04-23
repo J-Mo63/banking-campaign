@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-import numpy as np
 import seaborn as sns
+import numpy as np
 
 
 def correlation_matrix(df, title):
@@ -33,7 +33,7 @@ def pie_chart(df, title, **kwargs):
     # Get the values and counts from the data frame
     value_counts = df.value_counts()
 
-    # Separate the labels from the counts
+    # Separate the labels from the counts and create the lists
     sizes = []
     labels = []
     for i in range(len(value_counts)):
@@ -71,7 +71,7 @@ def bar_chart(df, title, **kwargs):
     # Apply the labels and sizes to the graph portions and display
     plt.bar(labels, sizes, align='center', alpha=1)
     plt.xticks(labels)
-    plt.ylabel('Amount')
+    plt.ylabel(kwargs.get('ylabel') if kwargs.get('ylabel') else 'Amount')
     plt.title(title)
     plt.show()
 
