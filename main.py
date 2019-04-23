@@ -169,3 +169,17 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 # Display a histogram for campaign
 # exp.histogram(df['campaign'], 'Contacts During Campaign', 30, (1, 30))
 
+# Display a box plot for emp.var.rate
+# exp.box_plot(df['emp.var.rate'], 'Employment Variation Rate')
+
+# Display a box plot for cons.price.idx
+# exp.box_plot(df['cons.price.idx'], 'Consumer Price Index')
+
+# Display a box plot for cons.conf.idx
+# exp.box_plot(df['cons.conf.idx'], 'Consumer Confidence Index')
+
+# Display a box plot for euribor3m
+# exp.box_plot(df['euribor3m'], 'Euribor 3-Month Rate')
+
+# Display a box plot for nr.employed
+# exp.box_plot(df['nr.employed'], 'Number of Employees')
