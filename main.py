@@ -116,7 +116,7 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 
 # Display an event plot and bar chart for age
 # exp.event_plot(df['age'], 'Age')
-# ...
+# exp.bar_chart(df['discretised_age'], 'Age Groups')
 
 # Display a pie chart for job
 # exp.pie_chart(df['job'], 'Job')
