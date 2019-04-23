@@ -144,11 +144,22 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 # exp.bar_chart(df['loan'], 'Loan')
 
 # Display a bar chart for poutcome
-exp.bar_chart(df['poutcome'], 'Previous Outcome')
-exp.pie_chart(df['poutcome'], 'Previous Outcome', l_slice=1)
+# exp.bar_chart(df['poutcome'], 'Previous Outcome')
+# exp.pie_chart(df['poutcome'], 'Previous Outcome', l_slice=1)
+
 # Display the mode of pdays
 # print('Mode of column \'pdays\': ' + str(exp.mode(df['pdays'])))
 
 # Display the mode of previous
 # exp.bar_chart(df.applymap(str)['previous'], 'Pre-Campaign Contacts')
 # print('Mode of column \'previous\': ' + str(exp.mode(df['previous'])))
+
+# Display a bar chart for month with a custom sort
+# months = {'jan': 0, 'feb': 1, 'mar': 2, 'apr': 3, 'may': 4, 'jun': 5,
+#           'jul': 6, 'aug': 7, 'sep': 8, 'oct': 9, 'nov': 10, 'dec': 11}
+# exp.bar_chart(df['month'], 'Contacts by Month', sorting_criteria=months)
+
+# Display a bar chart for day_of_week with a custom sort
+# days = {'mon': 0, 'tue': 1, 'wed': 2, 'thu': 3, 'fri': 4, 'sat': 5, 'sun': 6}
+# exp.bar_chart(df['day_of_week'], 'Contacts by Day of the Week', sorting_criteria=days)
+
