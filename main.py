@@ -163,3 +163,9 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 # days = {'mon': 0, 'tue': 1, 'wed': 2, 'thu': 3, 'fri': 4, 'sat': 5, 'sun': 6}
 # exp.bar_chart(df['day_of_week'], 'Contacts by Day of the Week', sorting_criteria=days)
 
+# Display a histogram for duration
+# exp.histogram(df['duration'], 'Contact Durations', 30, (0, 2000))
+
+# Display a histogram for campaign
+# exp.histogram(df['campaign'], 'Contacts During Campaign', 30, (1, 30))
+
