@@ -79,3 +79,11 @@ def bar_chart(df, title, **kwargs):
 def mode(df):
     # Isolate the mode as a single value
     return df.mode().values[0]
+
+
+def histogram(df, title, bins, display_range, **kwargs):
+    plt.hist(df, density=1, bins=bins, range=display_range)
+    plt.ylabel(kwargs.get('ylabel') if kwargs.get('ylabel') else 'Amount')
+    plt.title(title)
+    plt.show()
+
