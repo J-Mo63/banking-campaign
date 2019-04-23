@@ -132,3 +132,17 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 
 # Display a pie chart for y
 # exp.pie_chart(df['y'], 'Subscription to Term Deposit')
+
+# Display a bar chart for default
+# exp.bar_chart(df['default'], 'Defaulted')
+
+# Display a pie and bar chart for housing
+# exp.pie_chart(df['housing'], 'Housing')
+# exp.bar_chart(df['housing'], 'Housing')
+
+# Display a bar chart for loan
+# exp.bar_chart(df['loan'], 'Loan')
+
+# Display a bar chart for poutcome
+exp.bar_chart(df['poutcome'], 'Previous Outcome')
+exp.pie_chart(df['poutcome'], 'Previous Outcome', l_slice=1)
