@@ -16,13 +16,16 @@ def correlation_matrix(df, title):
     plt.show()
 
 
-def event_plot(df, title):
+def event_plot(df, title, **kwargs):
     # Load in the values to a vertical event plot
-    plt.eventplot(df, orientation='vertical')
+    plt.eventplot(df, orientation=kwargs.get('orientation'))
 
     # Set the graph values and display
     plt.title(title)
-    plt.gca().axes.get_xaxis().set_visible(False)
+    if kwargs.get('orientation') == 'vertical':
+        plt.gca().axes.get_xaxis().set_visible(False)
+    else:
+        plt.gca().axes.get_yaxis().set_visible(False)
     plt.show()
 
 
