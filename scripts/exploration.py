@@ -25,4 +25,21 @@ def event_plot(df, title):
     plt.gca().axes.get_xaxis().set_visible(False)
     plt.show()
 
+
+def pie_chart(df, title):
+    # Get the values and counts from the data frame
+    value_counts = df.value_counts()
+
+    # Separate the labels from the counts
+    sizes = []
+    labels = []
+    for i in range(len(value_counts)):
+        labels.append(value_counts.index[i].replace('.', ' ').title())
+        sizes.append(value_counts[i])
+
+    # Apply the labels and sizes to the graph portions and display
+    fig1, ax1 = plt.subplots()
+    ax1.pie(sizes, labels=labels, autopct='%.2f')
+    ax1.axis('equal')
+    plt.title(title)
     plt.show()
