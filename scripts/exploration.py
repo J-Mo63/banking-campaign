@@ -73,5 +73,9 @@ def bar_chart(df, title, **kwargs):
     plt.xticks(labels)
     plt.ylabel('Amount')
     plt.title(title)
-
     plt.show()
+
+
+def mode(df):
+    # Isolate the mode as a single value
+    return df.mode().values[0]
