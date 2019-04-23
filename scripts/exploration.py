@@ -47,3 +47,28 @@ def pie_chart(df, title, **kwargs):
     ax1.axis('equal')
     plt.title(title)
     plt.show()
+
+
+def bar_chart(df, title, **kwargs):
+    # Get the values and counts from the data frame
+    value_counts = df.value_counts()
+
+    # Separate the labels from the counts
+    sizes = []
+    labels = []
+    for i in range(len(value_counts)):
+        labels.append(value_counts.index[i]
+                      .replace('.', ' ').title() + ' (' + str(value_counts[i]) + ')')
+        sizes.append(value_counts[i])
+
+    # Check for slicing options in the kwargs
+    labels = labels[kwargs.get('l_slice'):kwargs.get('r_slice')]
+    sizes = sizes[kwargs.get('l_slice'):kwargs.get('r_slice')]
+
+    # Apply the labels and sizes to the graph portions and display
+    plt.bar(labels, sizes, align='center', alpha=1)
+    plt.xticks(labels)
+    plt.ylabel('Amount')
+    plt.title(title)
+
+    plt.show()
