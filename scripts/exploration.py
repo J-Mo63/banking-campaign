@@ -87,3 +87,10 @@ def histogram(df, title, bins, display_range, **kwargs):
     plt.title(title)
     plt.show()
 
+
+def box_plot(df, title):
+    fig1, ax1 = plt.subplots()
+    ax1.set_title(title)
+    ax1.boxplot(df)
+    plt.gca().axes.get_xaxis().set_visible(False)
+    plt.show()
