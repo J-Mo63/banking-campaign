@@ -114,7 +114,7 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 # Display a correlation matrix for the entire data set
 # exp.correlation_matrix(concatenated_df, 'Banking Campaign - Correlation Matrix')
 
-# Display an event plot and histogram for age
+# Display an event plot and bar chart for age
 # exp.event_plot(df['age'], 'Age')
 # ...
 
@@ -126,3 +126,9 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 
 # Display a pie chart for education
 # exp.pie_chart(df['education'], 'Education Level')
+
+# Display a pie chart for contact
+# exp.pie_chart(df['contact'], 'Medium of Contact')
+
+# Display a pie chart for y
+# exp.pie_chart(df['y'], 'Subscription to Term Deposit')
