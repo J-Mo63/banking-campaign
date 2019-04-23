@@ -56,13 +56,30 @@ def bar_chart(df, title, **kwargs):
     # Get the values and counts from the data frame
     value_counts = df.value_counts()
 
-    # Separate the labels from the counts
-    sizes = []
-    labels = []
-    for i in range(len(value_counts)):
-        labels.append(value_counts.index[i]
-                      .replace('.', ' ').title() + ' (' + str(value_counts[i]) + ')')
-        sizes.append(value_counts[i])
+    # Check for custom sorting dictionary in kwargs
+    if kwargs.get('sorting_criteria'):
+        # Get the kwarg value for the sorting criteria
+        sorting_criteria = kwargs.get('sorting_criteria')
+
+        # Create lists of the pre-allocated size
+        sizes = [None] * len(sorting_criteria)
+        labels = [None] * len(sorting_criteria)
+        for i in range(len(value_counts)):
+            # Populate the lists by the sorting values
+            sorting_value = sorting_criteria[value_counts.index[i]]
+            labels[sorting_value] = value_counts.index[i].replace('.', ' ').title()
+            sizes[sorting_value] = value_counts[i]
+        # Remove null items from the list
+        sizes = list(filter(None, sizes))
+        labels = list(filter(None, labels))
+    else:
+        # Separate the labels from the counts and create the lists
+        sizes = []
+        labels = []
+        for i in range(len(value_counts)):
+            labels.append(value_counts.index[i]
+                          .replace('.', ' ').title() + ' (' + str(value_counts[i]) + ')')
+            sizes.append(value_counts[i])
 
     # Check for slicing options in the kwargs
     labels = labels[kwargs.get('l_slice'):kwargs.get('r_slice')]
