@@ -146,3 +146,9 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 # Display a bar chart for poutcome
 exp.bar_chart(df['poutcome'], 'Previous Outcome')
 exp.pie_chart(df['poutcome'], 'Previous Outcome', l_slice=1)
+# Display the mode of pdays
+# print('Mode of column \'pdays\': ' + str(exp.mode(df['pdays'])))
+
+# Display the mode of previous
+# exp.bar_chart(df.applymap(str)['previous'], 'Pre-Campaign Contacts')
+# print('Mode of column \'previous\': ' + str(exp.mode(df['previous'])))
