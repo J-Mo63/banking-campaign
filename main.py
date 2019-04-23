@@ -111,5 +111,18 @@ processed_df = pd.DataFrame({
 # Combine the original data to the processed data for analysis
 concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 
-# Display a correlation matrix
-# exp.correlation_matrix(concatenated_df)
+# Display a correlation matrix for the entire data set
+# exp.correlation_matrix(concatenated_df, 'Banking Campaign - Correlation Matrix')
+
+# Display an event plot and histogram for age
+# exp.event_plot(df['age'], 'Age')
+# ...
+
+# Display a pie chart for job
+# exp.pie_chart(df['job'], 'Job')
+
+# Display a pie chart for marital
+# exp.pie_chart(df['marital'], 'Marital Status')
+
+# Display a pie chart for education
+# exp.pie_chart(df['education'], 'Education Level')
