@@ -183,3 +183,11 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 
 # Display a box plot for nr.employed
 # exp.box_plot(df['nr.employed'], 'Number of Employees')
+
+# Display a scatter plot depicting age on duration
+exp.scatter_plot(df['age'], df['duration'],
+                 'Age on Duration', xlabel='Age', ylabel='Duration')
+
+# Display a scatter plot depicting campaign on duration
+exp.scatter_plot(df['campaign'], df['duration'],
+                 'Campaign on Duration', xlabel='Campaign', ylabel='Duration')
