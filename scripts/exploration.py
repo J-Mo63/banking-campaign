@@ -111,3 +111,11 @@ def box_plot(df, title):
     ax1.boxplot(df)
     plt.gca().axes.get_xaxis().set_visible(False)
     plt.show()
+
+
+def scatter_plot(df_x, df_y, title, **kwargs):
+    plt.scatter(df_x, df_y)
+    plt.title(title)
+    plt.xlabel(kwargs.get('xlabel') if kwargs.get('xlabel') else 'x value')
+    plt.ylabel(kwargs.get('ylabel') if kwargs.get('ylabel') else 'y value')
+    plt.show()
