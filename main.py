@@ -191,3 +191,7 @@ exp.scatter_plot(df['age'], df['duration'],
 # Display a scatter plot depicting campaign on duration
 exp.scatter_plot(df['campaign'], df['duration'],
                  'Campaign on Duration', xlabel='Campaign', ylabel='Duration')
+
+# Display a 3d histogram depicting y on contact
+# exp.histogram_3d(df['y'], df['contact'],
+#                  'Success by Contact Type', xlabel='Success', ylabel='Contact Type')
