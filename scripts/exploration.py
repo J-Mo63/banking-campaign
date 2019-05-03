@@ -115,6 +115,53 @@ def box_plot(df, title):
 
 def scatter_plot(df_x, df_y, title, **kwargs):
     plt.scatter(df_x, df_y)
+
+def histogram_3d(df_x, df_y, title, **kwargs):
+    # This import registers the 3D projection, but is otherwise unused.
+    import mpl_toolkits.mplot3d
+    from sklearn import preprocessing
+
+    # Binarise the values and get value counts
+    bin_x = preprocessing.LabelBinarizer().fit_transform(df_x).flatten()
+    bin_y = preprocessing.LabelBinarizer().fit_transform(df_y).flatten()
+    x_names = df_x.value_counts()
+    y_names = df_y.value_counts()
+
+    # Calculate the number of bins by the area
+    num_bins = len(x_names) * len(y_names)
+
+    # Create the 3D subplot on a histogram
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    hist, x_edges, y_edges = np.histogram2d(bin_x, bin_y, bins=num_bins)
+
+    # Construct arrays for the anchor positions of the bars
+    x_pos, y_pos = np.meshgrid(x_edges[:-1] + 0.25, y_edges[:-1] + 0.25, indexing="ij")
+    x_pos = x_pos.ravel()
+    y_pos = y_pos.ravel()
+    z_pos = 0
+
+    # Construct arrays with the dimensions for the 16 bars
+    dx = dy = 0.5 * np.ones_like(z_pos)
+    dz = hist.ravel()
+    ax.bar3d(x_pos, y_pos, z_pos, dx, dy, dz, zsort='average')
+
+    # Get the unique values for each axis
+    x_vals = x_names.index.values
+    y_vals = y_names.index.values
+
+    # Create value strings that incorporate counts
+    for i in range(len(x_vals)):
+        x_vals[i] = x_vals[i] + ' (' + str(x_names.values[i]) + ')'
+
+    for i in range(len(y_vals)):
+        y_vals[i] = y_vals[i] + ' (' + str(y_names.values[i]) + ')'
+
+    # Set the axis ticks to the value strings
+    plt.xticks(range(len(x_vals)), x_vals, size='small')
+    plt.yticks(range(len(y_vals)), y_vals, size='small')
+
+    # Setup and display the plot
     plt.title(title)
     plt.xlabel(kwargs.get('xlabel') if kwargs.get('xlabel') else 'x value')
     plt.ylabel(kwargs.get('ylabel') if kwargs.get('ylabel') else 'y value')
