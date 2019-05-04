@@ -185,12 +185,13 @@ concatenated_df = pd.concat([df, processed_df], axis=1, sort=False)
 # exp.box_plot(df['nr.employed'], 'Number of Employees')
 
 # Display a scatter plot depicting age on duration
-exp.scatter_plot(df['age'], df['duration'],
-                 'Age on Duration', xlabel='Age', ylabel='Duration')
+# exp.scatter_plot(df['age'], df['duration'], df['y'],
+#                  'Contact Duration by Age', xlabel='Age', ylabel='Duration of Contact')
 
 # Display a scatter plot depicting campaign on duration
-exp.scatter_plot(df['campaign'], df['duration'],
-                 'Campaign on Duration', xlabel='Campaign', ylabel='Duration')
+# exp.scatter_plot(df['campaign'], df['duration'], df['y'],
+#                  'Contact Duration by Number of Contacts',
+#                  xlabel='Number of Contacts', ylabel='Duration of Contact')
 
 # Display a 3d histogram depicting y on contact
 # exp.histogram_3d(df['y'], df['contact'],
