@@ -113,8 +113,15 @@ def box_plot(df, title):
     plt.show()
 
 
-def scatter_plot(df_x, df_y, title, **kwargs):
-    plt.scatter(df_x, df_y)
+def scatter_plot(df_x, df_y, df_z, title, **kwargs):
+    # Colour the points gold if they resulted in a conversion
+    colouring = ['gold' if value == 'yes' else 'C0' for value in df_z.values]
+    plt.scatter(df_x, df_y, c=colouring)
+    plt.title(title)
+    plt.xlabel(kwargs.get('xlabel') if kwargs.get('xlabel') else 'x value')
+    plt.ylabel(kwargs.get('ylabel') if kwargs.get('ylabel') else 'y value')
+    plt.show()
+
 
 def histogram_3d(df_x, df_y, title, **kwargs):
     # This import registers the 3D projection, but is otherwise unused.
